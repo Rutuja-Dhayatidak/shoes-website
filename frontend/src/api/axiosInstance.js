@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000/api", // backend URL
+  baseURL: "https://shoes-website-1.onrender.com", // backend URL
 });
 
 // Token automatically add karega
