@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'react-toastify';
 
-import { IMAGE_BASE_URL } from '../../api/axiosInstance';
+import { getSafeImageUrl } from '../../api/axiosInstance';
 
 const VendorOrderDetails = () => {
   const { orderId } = useParams();
@@ -16,7 +16,7 @@ const VendorOrderDetails = () => {
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState(false);
 
-  const toUrl = (path) => path && (path.startsWith("http") ? path : `${IMAGE_BASE_URL}${path}`);
+  const toUrl = (path) => getSafeImageUrl(path);
 
   const fetchOrderDetails = async () => {
     try {

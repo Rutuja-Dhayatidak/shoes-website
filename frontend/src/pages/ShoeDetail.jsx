@@ -10,7 +10,7 @@ import {
     Package, Truck, RotateCcw
 } from "lucide-react";
 
-import { IMAGE_BASE_URL } from "../api/axiosInstance";
+import { getSafeImageUrl } from "../api/axiosInstance";
 
 const ShoeDetail = () => {
     const { id } = useParams();
@@ -80,7 +80,7 @@ const ShoeDetail = () => {
         </div>
     );
 
-    const toUrl = (path) => path.startsWith("http") ? path : `${IMAGE_BASE_URL}${path}`;
+    const toUrl = (path) => getSafeImageUrl(path);
 
     // Build images array from shoe.images or fall back to shoe.image
     let images = [];

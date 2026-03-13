@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-import { IMAGE_BASE_URL } from '../api/axiosInstance';
+import { getSafeImageUrl } from '../api/axiosInstance';
 
 const Cart = () => {
     const { cart, updateItemQuantity, removeItemFromCart, clearUserCart, loading } = useCart();
@@ -69,7 +69,7 @@ const Cart = () => {
                                 <div key={`${item.productId}-${item.selectedSize}`} className="flex gap-6 pb-8 border-b border-white/5 group">
                                     <div className="w-32 h-32 md:w-40 md:h-40 bg-[#131e35] rounded-3xl overflow-hidden flex-shrink-0 flex items-center justify-center p-4 border border-white/5 group-hover:border-white/10 transition-colors">
                                         <img
-                                            src={item.productImage?.startsWith('http') ? item.productImage : `${IMAGE_BASE_URL}${item.productImage}`}
+                                            src={getSafeImageUrl(item.productImage)}
                                             alt={item.productName}
                                             className="w-full h-full object-contain filter drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
                                         />
