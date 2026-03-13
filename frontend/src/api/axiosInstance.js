@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://shoes-website-1.onrender.com", // backend URL
+  baseURL: "https://shoes-website-1.onrender.com/api", // backend URL
 });
 
 // Token automatically add karega

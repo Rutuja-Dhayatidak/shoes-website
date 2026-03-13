@@ -81,7 +81,7 @@ const ShoeDetail = () => {
     const BASE =
         process.env.NODE_ENV === "development"
             ? "http://localhost:3000"
-            : "https://shoes-website-1.onrender.com/api";
+            : "https://shoes-website-1.onrender.com";
     const toUrl = (path) => path.startsWith("http") ? path : `${BASE}${path}`;
 
     // Build images array from shoe.images or fall back to shoe.image
