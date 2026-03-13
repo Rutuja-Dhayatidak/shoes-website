@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import CategoryBanner from "../components/CategoryBanner";
 import { getProducts, getShoeTypes, getShoeBrands } from "../api/productApi";
 
+import { IMAGE_BASE_URL } from "../api/axiosInstance";
+
 const PRICE_RANGES = [
     { label: "Under ₹500", min: 0, max: 500 },
     { label: "₹500 – ₹1,000", min: 500, max: 1000 },
@@ -493,7 +495,7 @@ const Shop = () => {
                                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                                         {shoes.map((shoe) => {
                                             const imgSrc = shoe.image
-                                                ? (shoe.image.startsWith('http') ? shoe.image : `http://localhost:3000${shoe.image}`)
+                                                ? (shoe.image.startsWith('http') ? shoe.image : `${IMAGE_BASE_URL}${shoe.image}`)
                                                 : 'https://github.com/shoes/shoes4/blob/main/app/orange-shoe.png?raw=true';
                                             return (
                                                 <div key={shoe._id} className="shoe-3d-parent">

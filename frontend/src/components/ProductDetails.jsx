@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { X, Tag, Layers, IndianRupee, Package, FileText, CheckCircle, XCircle, ShoppingCart } from "lucide-react";
 import { useCart } from "../context/CartContext";
+import { IMAGE_BASE_URL } from "../api/axiosInstance";
 
 const ProductDetails = ({ shoe, onClose }) => {
     const [visible, setVisible] = useState(false);
@@ -54,7 +55,7 @@ const ProductDetails = ({ shoe, onClose }) => {
     if (!shoe) return null;
 
     const imgSrc = shoe.image
-        ? (shoe.image.startsWith("http") ? shoe.image : `http://localhost:3000${shoe.image}`)
+        ? (shoe.image.startsWith("http") ? shoe.image : `${IMAGE_BASE_URL}${shoe.image}`)
         : "https://github.com/shoes/shoes4/blob/main/app/orange-shoe.png?raw=true";
 
     const totalStock = shoe.sizes?.reduce((sum, s) => sum + (Number(s.stock) || 0), 0) || 0;

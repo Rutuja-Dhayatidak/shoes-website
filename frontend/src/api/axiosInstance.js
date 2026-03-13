@@ -2,8 +2,10 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://shoes-website-1.onrender.com/api", // backend URL
+  baseURL: import.meta.env.VITE_API_URL || "https://shoes-website-1.onrender.com/api",
 });
+
+export const IMAGE_BASE_URL = axiosInstance.defaults.baseURL.replace("/api", "");
 
 // Token automatically add karega
 axiosInstance.interceptors.request.use((config) => {

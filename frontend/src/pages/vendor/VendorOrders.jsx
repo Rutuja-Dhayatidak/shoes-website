@@ -4,12 +4,13 @@ import { ShoppingBag, Calendar, User, MapPin, Package, CheckCircle, Clock, Exter
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 
+import { IMAGE_BASE_URL } from '../../api/axiosInstance';
+
 const VendorOrders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const BASE = "http://localhost:3000";
-  const toUrl = (path) => path && (path.startsWith("http") ? path : `${BASE}${path}`);
+  const toUrl = (path) => path && (path.startsWith("http") ? path : `${IMAGE_BASE_URL}${path}`);
 
   useEffect(() => {
     const fetchOrders = async () => {

@@ -10,6 +10,8 @@ import {
     Package, Truck, RotateCcw
 } from "lucide-react";
 
+import { IMAGE_BASE_URL } from "../api/axiosInstance";
+
 const ShoeDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -78,11 +80,7 @@ const ShoeDetail = () => {
         </div>
     );
 
-    const BASE =
-        process.env.NODE_ENV === "development"
-            ? "http://localhost:3000"
-            : "https://shoes-website-1.onrender.com";
-    const toUrl = (path) => path.startsWith("http") ? path : `${BASE}${path}`;
+    const toUrl = (path) => path.startsWith("http") ? path : `${IMAGE_BASE_URL}${path}`;
 
     // Build images array from shoe.images or fall back to shoe.image
     let images = [];

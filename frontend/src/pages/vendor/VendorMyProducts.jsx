@@ -4,6 +4,8 @@ import { Package, AlertCircle, Tag, PlusCircle, Activity, Edit2, Trash2, Chevron
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
+import { IMAGE_BASE_URL } from "../../api/axiosInstance";
+
 const VendorMyProducts = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -14,9 +16,8 @@ const VendorMyProducts = () => {
     const fetchProducts = async () => {
         setLoading(true);
         try {
-            const BASE = "http://localhost:3000";
-            const toUrl = (path) => path && (path.startsWith("http") ? path : `${BASE}${path}`);
             const data = await getMyProducts(page, limit);
+            const toUrl = (path) => path && (path.startsWith("http") ? path : `${IMAGE_BASE_URL}${path}`);
             // Ensure images are prefixed if needed
             const processedProducts = (data.products || []).map(p => ({
                 ...p,

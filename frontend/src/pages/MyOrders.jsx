@@ -4,12 +4,13 @@ import { Package, ChevronRight, Clock, MapPin, CheckCircle, Truck, XCircle } fro
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+import { IMAGE_BASE_URL } from '../api/axiosInstance';
+
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const BASE = "http://localhost:3000";
-  const toUrl = (path) => path && (path.startsWith("http") ? path : `${BASE}${path}`);
+  const toUrl = (path) => path && (path.startsWith("http") ? path : `${IMAGE_BASE_URL}${path}`);
 
   useEffect(() => {
     fetchOrders();
